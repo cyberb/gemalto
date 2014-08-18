@@ -7,7 +7,11 @@ IMAGE_FILE=$DISTRO.img
 IMAGE_SIZE=2000
 LOOP_DEVICE=/dev/loop0;
 
-apt-get install -y syslinux mtools
+apt-get install -y syslinux mtools squashfs-tools
+
+#
+# Converting iso to usb image
+#
 
 mkdir -p temp
 
@@ -32,9 +36,9 @@ if [ -d image ]; then
 fi
 
 mkdir image
-losetup /dev/loop0 $IMAGE_FILE -o 1048576 --sizelimit 2096103424
-mkfs.ext4 /dev/loop0
-mount /dev/loop0 image
+losetup $LOOP_DEVICE $IMAGE_FILE -o 1048576 --sizelimit 2096103424
+mkfs.fat $LOOP_DEVICE
+mount $LOOP_DEVICE image
 
 if [ -d iso ]; then
   echo "iso dir exists, deleting ..."
@@ -46,7 +50,27 @@ mount -o loop kubuntu-14.04.1-desktop-amd64.iso iso
 cp -a iso/. image/
 umount iso
 
+syslinux -s $LOOP_DEVICE
 mv image/isolinux image/syslinux
 mv image/syslinux/isolinux.cfg image/syslinux/syslinux.cfg
-umount image
 
+#
+# Adding gemalto drivers
+#
+
+cp image/casper/filesystem.squashfs .
+unsquashfs filesystem.squashfs
+cp /run/resolvconf/resolv.conf squashfs-root/run/resolvconf/resolv.conf
+chroot squashfs-root sudo add-apt-repository ppa:gemaltocrypto/dotnet+2.2.0.1
+chroot squashfs-root sudo apt-get install -y libgtop11dotnet0
+
+#
+# Setting up citrix client
+#
+
+#
+# Adding Firefox support
+#
+
+umount image
+losetup -d $LOOP_DEVICE

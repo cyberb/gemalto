@@ -2,3 +2,4 @@ image
 temp
 *.img
 *.iso
+*squashfs*
