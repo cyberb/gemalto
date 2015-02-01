@@ -9,9 +9,10 @@ https://help.ubuntu.com/community/CitrixICAClientHowTo
 ### Firefox
 
 PPA is back: https://launchpad.net/~arnaud-morin/+archive/ubuntu/gemalto
-
+```
 sudo add-apt-repository ppa:arnaud-morin/gemalto
 sudo apt-get install libgtop11dotnet0
+```
 
 3. Firefox Preferences -> Advanced -> Certificates -> Security Devices
 4. Load Module filenam: /usr/lib/libgtop11dotnet.so.0
