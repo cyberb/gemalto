@@ -6,6 +6,11 @@ Live CD wth gemalto smart card driver citrix client installed (Not ready)
 
 https://help.ubuntu.com/community/CitrixICAClientHowTo
 
+[x64 only] Citrix is only available for for x32 so you need to install corresponding libpcsclite1 
+```
+sudo apt-get install libpcsclite1:i386
+```
+
 ### Firefox
 
 PPA is back: https://launchpad.net/~arnaud-morin/+archive/ubuntu/gemalto
