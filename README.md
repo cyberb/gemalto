@@ -16,6 +16,7 @@ sudo apt-get install libpcsclite1:i386
 PPA is back: https://launchpad.net/~arnaud-morin/+archive/ubuntu/gemalto
 ```
 sudo add-apt-repository ppa:arnaud-morin/gemalto
+sudo apt-get update
 sudo apt-get install libgtop11dotnet0
 ```
 
