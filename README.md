@@ -4,7 +4,7 @@ Gemalto .NET Library for smartcard
 
 Based on: https://launchpad.net/~arnaud-morin/+archive/ubuntu/gemalto/+packages
 
-Latest fixes from: https://github.com/smartcardservices/smartcardservices/commit/3330c0cca77fc653c2fcc51749a26f49a49ed21b
+Latest fixes from: https://github.com/smartcardservices/smartcardservices
 
 ## Prepare (Ubuntu)
 
