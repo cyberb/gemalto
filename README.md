@@ -8,7 +8,7 @@ Latest fixes from: https://github.com/smartcardservices/smartcardservices
 
 ## Prepare (Ubuntu)
 
-apt install build-essential libboost-all-dev libpcsclite1 libengine-pkcs11-openssl opensc pcscd pcsc-tools libccid
+apt install build-essential libboost-all-dev libpcsclite1 libengine-pkcs11-openssl opensc pcscd pcsc-tools libccid libpcsclite-dev
 
 ## Compile
 
