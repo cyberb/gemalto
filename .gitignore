@@ -3,3 +3,15 @@ temp
 *.img
 *.iso
 *squashfs*
+*.o
+*.lo
+.deps
+*.status
+*~
+Makefile
+libtool
+*.log
+*.cache
+*.loT
+*.la
+.libs
